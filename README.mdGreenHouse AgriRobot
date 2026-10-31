@@ -1,0 +1,190 @@
+# 🌱 GreenHouse AgriRobot
+
+### Smart Greenhouse Monitoring and Automated Agriculture System
+
+GreenHouse AgriRobot is an IoT-based smart agriculture project designed to monitor greenhouse conditions, detect obstacles, and support automated plant watering. It combines a mobile robot controlled by Arduino UNO with an ESP8266-based monitoring system and a web dashboard for displaying sensor readings.
+
+The project aims to make greenhouse monitoring easier, improve water management, and demonstrate the practical use of robotics and the Internet of Things (IoT) in agriculture.
+
+## 🎯 Project Objectives
+
+- Monitor soil moisture, temperature, humidity, and light intensity.
+- Develop an Arduino UNO-based RC car for movement and obstacle detection.
+- Use an ESP8266 NodeMCU for wireless sensor data communication.
+- Display sensor readings and system status on a web dashboard.
+- Implement rule-based water pump control according to soil moisture readings.
+- Explore the integration of robotics, IoT, and smart farming.
+
+## ✨ Key Features
+
+- **Robot Movement:** RC car movement using Arduino UNO and a motor driver.
+- **Obstacle Detection:** Ultrasonic sensor-based obstacle detection.
+- **Soil Monitoring:** Soil-moisture sensor for monitoring soil conditions.
+- **Environmental Monitoring:** DHT11 sensor for temperature and humidity.
+- **Light Monitoring:** LDR sensor for measuring relative light intensity.
+- **Water Management:** Rule-based pump control based on soil-moisture readings.
+- **Web Dashboard:** React-based interface for viewing sensor readings and system status.
+- **Backend API:** Flask backend for handling sensor data and robot-control requests.
+
+## 🛠️ Technologies Used
+
+| Technology / Component | Purpose |
+|---|---|
+| Arduino UNO | RC car movement and obstacle detection |
+| ESP8266 NodeMCU | Wireless connectivity and sensor monitoring |
+| Ultrasonic Sensor | Obstacle detection |
+| Soil-Moisture Sensor | Soil moisture measurement |
+| DHT11 | Temperature and humidity monitoring |
+| LDR Sensor | Light intensity monitoring |
+| React.js | Web dashboard frontend |
+| Flask | Backend API |
+| Vite | Frontend development and build tool |
+| Python | Backend programming |
+| IoT | Sensor data communication and monitoring |
+
+## 🏗️ System Architecture
+The project consists of three main subsystems:
+
+### 1. RC Car System
+The Arduino UNO controls the robot's movement through a motor driver. An ultrasonic sensor detects obstacles and supports obstacle-aware navigation.
+
+### 2. Smart Agriculture Monitoring System
+The ESP8266 NodeMCU interfaces with the environmental sensors to collect soil moisture, temperature, humidity, and light readings. The collected data can be sent to the backend for monitoring through the dashboard.
+
+### 3. Web Dashboard and Backend
+The React frontend displays available sensor readings and system status. The Flask backend provides API endpoints for sensor data and robot-control operations.
+
+**System Data Flow:**
+
+Sensors → ESP8266 → Backend API → React Dashboard
+
+Arduino UNO → Motor Driver → RC Car Movement
+
+## 💧 Water Pump Control Logic
+The backend includes a soil-moisture-based pump-control rule:
+- If soil moisture is below 30, the pump state is set to ON.
+- If soil moisture is 40 or above, the pump state is set to OFF.
+- Between 30 and 40, the previous pump state can be maintained.
+
+This threshold-based logic is intended to reduce unnecessary watering. Actual pump operation depends on the physical pump circuit and its integration with the controller.
+
+## 📂 Project Structure
+
+```text
+GreenHouse-AgriRobot/
+│
+├── Backend/
+│   └── app.py
+│
+├── Dashboard/
+│   ├── public/
+│   ├── src/
+│   │   ├── assets/
+│   │   ├── App.jsx
+│   │   ├── App.css
+│   │   ├── index.css
+│   │   └── main.jsx
+│   ├── index.html
+│   ├── package.json
+│   ├── package-lock.json
+│   └── vite.config.js
+│
+├── Hardware/
+│   └── [Hardware code and files, when available]
+│
+├── Documentation/
+│   └── [Project reports and diagrams, when available]
+│
+├── .gitignore
+└── README.md
+```
+
+*Note: The structure above describes the intended repository organisation. Keep only files and folders that actually exist in the project.*
+
+## ⚙️ Software Requirements
+- Python 3
+- Node.js and npm
+- Visual Studio Code
+- Arduino IDE (for Arduino firmware)
+- Git (for version control, if using Git commands)
+
+## 🚀 Getting Started
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/Byteflux2002/Greenhouse-AgriRobot.git
+cd Greenhouse-AgriRobot
+```
+
+### 2. Set Up the Backend
+Open a terminal in the project root:
+
+```bash
+python -m venv .venv
+```
+
+Activate the virtual environment on Windows:
+
+```powershell
+.\.venv\Scripts\Activate.ps1
+```
+
+Install the backend dependencies listed in the project's requirements file, if available. If no requirements file exists, create one from the actual Python dependencies used by `Backend/app.py`.
+
+Start the Flask application using the project's configured entry point. For example:
+
+```powershell
+python Backend/app.py
+```
+
+The backend address and port depend on the Flask configuration.
+
+### 3. Set Up the Dashboard
+Open a separate terminal:
+
+```bash
+cd Dashboard
+npm install
+npm run dev
+```
+
+Open the local URL printed by Vite in the terminal.
+
+### 4. Connect the Hardware
+- Upload the appropriate firmware to the Arduino UNO using Arduino IDE.
+- Connect the ESP8266 and sensors according to the actual circuit diagram.
+- Configure the backend and dashboard to use the correct communication endpoint.
+- Verify sensor readings and pump-control behaviour before running the system unattended.
+
+## 📊 Expected Outcomes
+- A working RC car capable of movement and obstacle detection.
+- Collection of greenhouse-related sensor readings.
+- Display of available sensor readings through a web interface.
+- Demonstration of soil-moisture-based pump-control logic.
+- Integration of robotics and IoT concepts in a smart agriculture prototype.
+
+## 🌾 Applications
+- Greenhouse monitoring
+- Smart irrigation demonstrations
+- Soil-moisture monitoring
+- Agricultural robotics prototypes
+- IoT-based educational projects
+- Precision agriculture research and experimentation
+
+## 🔮 Future Scope
+- Add remote robot-control functionality.
+- Integrate live sensor updates and historical data visualisation.
+- Add plant-specific watering thresholds.
+- Improve water usage monitoring.
+- Explore autonomous navigation and plant-health analysis.
+- Add alerts for abnormal greenhouse conditions.
+
+## ⚠️ Current Development Status
+This project is under development. Individual components, dashboard functionality, sensor communication, robot movement, and physical pump control should be tested separately before full-system integration. Features described here represent the project design and implemented logic; hardware functionality depends on successful integration and testing.
+
+## 👩‍💻 Contributors
+Project developed as a smart agriculture and IoT prototype.
+
+## 📄 License
+A license has not yet been specified. Add an appropriate open-source license if you intend to allow others to reuse or modify this project.
