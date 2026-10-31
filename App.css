@@ -1,0 +1,31 @@
+/* GreenHouse Agribot Dashboard */
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f0fdf4;
+  color: #14532d;
+}
+
+h1, h2, h3, p {
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+}
+
+button:hover {
+  opacity: 0.9;
+}
